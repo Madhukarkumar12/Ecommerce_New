@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- toastify css -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
+    <title>Index</title>
+</head>
+<body>
+   
+    <!-- <div id="header-placeholder"></div> -->
+    <div id="card"></div>
+    <div id="foot"></div>
+
+    <script type="module">
+
+        import { initializeProducts } from '/content/content.js';  
+        document.addEventListener('DOMContentLoaded', async () => {
+            
+            async function loadHTML(url, elementId) {
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`Failed to load ${url}: ${response.statusText}`);
+                    }
+                    const data = await response.text();
+                    document.getElementById(elementId).innerHTML = data;
+
+                    if (elementId === 'card') {
+                    initializeProducts();
+                }
+                } catch (error) {
+                    console.error(error);
+                    document.getElementById(elementId).innerHTML = `<p>Error loading content</p>`;
+                }
+            }
+    
+            
+            try {
+                // await loadHTML('header.html', 'header-placeholder');
+                await loadHTML('content/content.html', 'card');
+                await loadHTML('footer.html', 'foot');
+            } catch (error) {
+                console.error("Error loading components:", error);
+            }
+        });
+    </script>
+</body>
+  <!-- <script src="index.js"></script> -->
+   <!-- toastify -->
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"></script> 
+   <script src="headerLoader.js"></script>
+ 
+</html>

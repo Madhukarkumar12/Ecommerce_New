@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>content</title>
+    <link rel="stylesheet" href="/content/content.css">
+</head>
+<body>
+    <main>
+        <div class="products-container" id="productsContainer"></div>
+        <button id="showMoreBtn" class="show-more-btn">Show More</button>
+    </main>
+
+    <!-- <script type="module" src="/content/content.js"></script> -->
+
+    <script type="module">
+        import { initializeProducts } from '/content/content.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeProducts();
+        });
+    </script>
+</body>
+
+<script src="headerLoader.js"></script>
+</html>

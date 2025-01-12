@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/register.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <title>Register</title>
+</head>
+<body>
+
+    
+    <!-- Header -->
+    <!-- <div id="header-placeholder"></div>
+    <script>
+        fetch('header.html')
+         .then(Response => Response.text())
+         .then(data=>{
+            document.getElementById('header-placeholder').innerHTML=data;
+         })
+    </script> -->
+
+    <!-- Register -->
+    
+    <main class="register-container">
+        <div class="register-left">
+            <img src='images/register.png' alt="Shopping illustration">
+        </div>
+        
+        <div class="register-right">
+            <a href="index.html" class="back-link">← Back Home</a>
+            
+            <div class="register-form">
+                <h2>BECOME AN EXCLUSIVE MEMBER</h2>
+                <p>SIGN UP AND JOIN START SHOPPING</p>
+                
+                <form onsubmit="signup(event)">
+                    <div class="form-group">
+                        <input type="text" id="signupName" placeholder="Johnson Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="signupEmail" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="signupPassword" placeholder="********" required>
+                    </div>
+                    <button type="submit" class="create-account-btn">Create an Account →</button>
+                </form>
+                
+                <p class="login-text">Already a Member? <a href="login.html">LOG IN NOW</a></p>
+            </div>
+        </div>
+    </main>
+
+    
+    <script src="registerLog.js"></script>
+    <script src="headerLoader.js"></script>
+
+</body>
+</html>

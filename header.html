@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="E-commerce Logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html" style="display: none;" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+        <div class="auth-links">
+            <a href="login.html" class="login-btn" id="login">Log In</a>
+            <a href="register.html" class="register-btn" id="signup">Register</a>
+            <div class="dropdown" id="dropdown" style="display: none;">
+                <button class="dropdown-btn">Account</button>
+                <div class="dropdown-menu">
+                    <a href="profile.html"><i class="fa fa-user"></i> My Profile</a>
+                    <a onclick="logout()"><i class="fa fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+
+<script src="headerLoader.js"></script>
+  <script src="registerLog.js"></script>
+  <!-- <script src="index.js"></script> -->
+   
+
+</html>
