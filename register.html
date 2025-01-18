@@ -4,10 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/register.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <title>Register</title>
+
+    <style>
+        #snackbar {
+          visibility: hidden;
+          min-width: 250px;
+          margin-left: -125px;
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          border-radius: 2px;
+          padding: 16px;
+          position: fixed;
+          z-index: 1;
+          left: 50%;
+          bottom: 30px;
+          font-size: 17px;
+        }
+        
+        #snackbar.show {
+          visibility: visible;
+          -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+          animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        
+        @-webkit-keyframes fadein {
+          from {bottom: 0; opacity: 0;} 
+          to {bottom: 30px; opacity: 1;}
+        }
+        
+        @keyframes fadein {
+          from {bottom: 0; opacity: 0;}
+          to {bottom: 30px; opacity: 1;}
+        }
+        
+        @-webkit-keyframes fadeout {
+          from {bottom: 30px; opacity: 1;} 
+          to {bottom: 0; opacity: 0;}
+        }
+        
+        @keyframes fadeout {
+          from {bottom: 30px; opacity: 1;}
+          to {bottom: 0; opacity: 0;}
+        }
+        </style>
 </head>
 <body>
 
@@ -23,13 +64,17 @@
     </script> -->
 
     <!-- Register -->
-    
+    <div id="snackbar"></div>
     <main class="register-container">
+       
         <div class="register-left">
             <img src='images/register.png' alt="Shopping illustration">
         </div>
+
+        
         
         <div class="register-right">
+            
             <a href="index.html" class="back-link">← Back Home</a>
             
             <div class="register-form">
@@ -37,15 +82,38 @@
                 <p>SIGN UP AND JOIN START SHOPPING</p>
                 
                 <form onsubmit="signup(event)">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <input type="text" id="signupName" placeholder="Johnson Doe" required>
-                    </div>
+                    </div> -->
                     <div class="form-group">
+                        <div class="input-wrapper">
+                            <!-- <i class="fa-regular fa-user"></i> -->
+                            <span class="icon"><i class="fa-solid fa-circle-user"></i></span>
+                            <input type="text" id="signupName" placeholder="Johnson Doe" required>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
                         <input type="email" id="signupEmail" placeholder="example@email.com" required>
-                    </div>
+                    </div> -->
                     <div class="form-group">
-                        <input type="password" id="signupPassword" placeholder="********" required>
+                        <div class="input-wrapper">
+                            <!-- <i class="fa-regular fa-envelope"></i> -->
+                            <span class="icon"><i class="fa-regular fa-envelope"></i></span>
+                            <input type="email" id="signupEmail" placeholder="example@email.com" required>
+                        </div>
                     </div>
+
+                    <!-- <div class="form-group">
+                        <input type="password" id="signupPassword" placeholder="********" required>
+                    </div> -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <!-- <i class="fa-solid fa-pen"></i> -->
+                            <span class="icon"></i><i class="fa-solid fa-pen"></i></span>
+                            <input type="password" id="signupPassword" placeholder="********" required>
+                        </div>
+                    </div>
+
                     <button type="submit" class="create-account-btn">Create an Account →</button>
                 </form>
                 
@@ -53,6 +121,9 @@
             </div>
         </div>
     </main>
+
+    
+
 
     
     <script src="registerLog.js"></script>

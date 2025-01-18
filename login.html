@@ -5,9 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/login.css">
     <title>Document</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <style>
+        #snackbar {
+          visibility: hidden;
+          min-width: 250px;
+          margin-left: -125px;
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          border-radius: 2px;
+          padding: 16px;
+          position: fixed;
+          z-index: 1;
+          left: 50%;
+          bottom: 30px;
+          font-size: 17px;
+        }
+        
+        #snackbar.show {
+          visibility: visible;
+          -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+          animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        
+        @-webkit-keyframes fadein {
+          from {bottom: 0; opacity: 0;} 
+          to {bottom: 30px; opacity: 1;}
+        }
+        
+        @keyframes fadein {
+          from {bottom: 0; opacity: 0;}
+          to {bottom: 30px; opacity: 1;}
+        }
+        
+        @-webkit-keyframes fadeout {
+          from {bottom: 30px; opacity: 1;} 
+          to {bottom: 0; opacity: 0;}
+        }
+        
+        @keyframes fadeout {
+          from {bottom: 30px; opacity: 1;}
+          to {bottom: 0; opacity: 0;}
+        }
+        </style>
+    
 </head>
 <body>
 
@@ -20,6 +62,8 @@
             document.getElementById('header-placeholder').innerHTML=data;
          })
     </script> -->
+
+    <div id="snackbar"></div>
 
     <main class="login-container">
         <div class="login-left">
@@ -34,12 +78,29 @@
                 <p>LOG IN TO CONTINUE</p>
                 
                 <form onsubmit="login(event)">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <input type="email" id="loginEmail" placeholder="example@email.com" required>
-                    </div>
+                    </div> -->
                     <div class="form-group">
-                        <input type="password" id="loginPassword" placeholder="********" required>
+                        <div class="input-wrapper">
+                            <!-- <i class="fa-regular fa-envelope"></i> -->
+                            <span class="icon"><i class="fa-regular fa-envelope"></i></span>
+                            <input type="email" id="loginEmail" placeholder="example@email.com" required>
+                        </div>
                     </div>
+
+                    <!-- <div class="form-group">
+                        <input type="password" id="loginPassword" placeholder="********" required>
+                    </div> -->
+
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <!-- <i class="fa-solid fa-pen"></i> -->
+                            <span class="icon"></i><i class="fa-solid fa-pen"></i></span>
+                            <input type="password" id="loginPassword" placeholder="********" required>
+                        </div>
+                    </div>
+
                     <button type="submit" class="login-account-btn">Proceed to my Account →</button>
                 </form>
                 
@@ -47,6 +108,7 @@
             </div>
         </div>
     </main>
+    
     
 
    

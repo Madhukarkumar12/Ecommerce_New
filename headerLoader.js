@@ -1,5 +1,8 @@
+
+// import { showSnackbar } from "./registerLog";
+
 document.addEventListener("DOMContentLoaded",()=>{
-    fetch('header.html')
+    fetch('/header.html')
      .then(response=>response.text())
      .then(data=>{
         document.body.insertAdjacentHTML('afterbegin',data);
@@ -23,8 +26,17 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 function logout() {
     localStorage.removeItem('isLoggedIn'); // Clear login state
-    alert("You have been logged out!");
-    window.location.href = 'index.html'; // Redirect to home page
+    // alert("You have been logged out!");
+    // showSnackbar("You have been Logged out!");
+    // setTimeout(function() {
+    //     window.location.href = 'index.html';
+    // }, 3000);
+    window.location.href='index.html';
+    
+    
 }
+
+
+
 
 

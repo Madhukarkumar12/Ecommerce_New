@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/cart/cart.css">
+</head>
+<body>
+    <!-- <div id="header-container"></div> -->
+    <div class="container">
+        <a href="/index.html" class="back-link">← Return Home</a>
+        <div class="header-content">
+            <h1>YOUR CART</h1>
+        </div>
+
+        <div class="cart-container">
+            <div class="cart-items">
+                <!-- cart items will be added dyanamically here..... -->
+            </div>
+
+            <div class="order-summary">
+                <h2>Order summary</h2>
+                <div class="summary-item">
+                    <span>Subtotal</span>
+                    <span id="subtotal">Rs 0</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Discount (-10%)</span>
+                    <span id="discount" class="discount">-Rs 0</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Delivery Fee</span>
+                    <span>Rs 50</span>
+                </div>
+
+                <div class="summary-item total">
+                    <span>Total</span>
+                    <span id="total">Rs 50</span>
+                </div>
+                <button class="checkout-btn">Go to Checkout →</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/headerLoader.js"></script>
+    <script type="module">
+        import { initialize } from '/cart/cart.js';
+        document.addEventListener('DOMContentLoaded', () => {
+            initialize();
+    });
+    </script>
+
+    <script type="module" src="/content/content.js"></script>
+
+    <!-- <script src="/cart/cart.js"></script> -->
+    
+</body>
+</html>

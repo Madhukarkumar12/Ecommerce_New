@@ -1,6 +1,7 @@
 .register-container {
     display: flex;
     min-height: calc(100vh - 70px);
+    /* background: #fff; */
 }
 
 .register-left {
@@ -18,51 +19,152 @@
     height: 909px;
     top: 112px; */
     width: 470px;
+    height: 909px;
+    /* height: 500px; */
+    justify-content: flex-start;
+    top: 112px;
 }
 
 .register-right {
     flex: 1;
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
 }
 
 .back-link {
+    /* text-decoration: none;
+    color: #333;
+    margin-bottom: 2rem;  */
+   
+    /* text-decoration: none;
+    color: #333;
+    width: 102px;
+    height: 24px;
+    top: 122px;
+    left: 470px;
+    gap: 0px;
+    opacity: 0px; */
+
     text-decoration: none;
     color: #333;
-    margin-bottom: 2rem;
+    font-size: 14px;
+    display: flex;
+    align-items:center;
+    gap: 8px;
+    margin-bottom: 4rem;
+    margin-left: -6rem;
+    
+
+
 }
 
-register-form {
-    max-width: 400px;
-    margin: auto;
+.register-form {
+    /* max-width: 400px;
+    margin: auto; */
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 420px;
+    height: 342px;
+    top: 376px;
+    left: 737px;
+    gap: 18px;
 }
 
 .register-form h2 {
-    font-size: 1rem;
+    /* font-size: 1rem;
     margin-bottom: 0.5rem;
+    text-align: center; */
+    font-family: Zen Kaku Gothic Antique;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 44px;
     text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #212121;
 }
 
-.register-form p {
-    color: #666;
-    margin-bottom: 0.6rem;
+.register-form  p {
+    /* color: #666;
+    margin-bottom:2rem;
+    text-align: center; */
+    font-family: Zen Kaku Gothic Antique;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28.6px;
     text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
 }
+
 
 .form-group {
+    /* margin-bottom: 15px; */
     margin-bottom: 1rem;
+    /* display: flex; */
+
+    /* width:  420px;
+    height:  342px;
+    top: 376px;
+    left: 737px;
+    gap: 18px;
+    opacity: 0px; */
+   width: 420px;
+}
+    
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* width: 100%; */
+    /* padding-left: 16px;  */
+    width: 420px;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.input-wrapper .icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    font-size: 20px; /* Adjust icon size */
+    color: #757575;
+    transform: translateY(-50%);
+    /* margin-right: 8px;  */
+
 }
+
+.input-wrapper input {
+    width: 100%;
+    /* height: 40px; */
+    height: 72px;
+    padding: 0 12px 0 36px;
+    /* gap: 0px; */
+    /* opacity: 0px; */
+    border: 1px solid #757575;
+    color:#757575;
+    /* text-align: center; */
+    font-size: 16px;
+
+
+}
+
+.input-wrapper input::placeholder {
+    color: #757575; /* Placeholder color */
+    /* text-align: left;  */
+}
+
+
+
 
 .create-account-btn {
     width: 100%;
+    /* width: 420px; */
+    height: 72px;
     padding: 1rem;
     background-color: #1a1a2e;
     color: white;
@@ -78,7 +180,26 @@ register-form {
 }
 
 .login-text a {
-    color: #1a1a2e;
-    text-decoration: none;
-    font-weight: bold;
+    font-family: Zen Kaku Gothic Antique;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 23.17px;
+    text-align: center;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+
 }
+.login-text p{
+    width: 232px;
+    height: 23px;
+    top: 758px;
+    left: 831px;
+}
+
+
+
+
+
