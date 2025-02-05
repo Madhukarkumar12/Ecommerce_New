@@ -12,22 +12,35 @@
         <button id="showMoreBtn" class="show-more-btn">Show More</button>
     </main>
 
-    <!-- <script type="module" src="/content/content.js"></script> -->
+    <div id="toaster-placeholder"></div> <!-- Placeholder for toaster.html content -->
 
     <script type="module">
         import { initializeProducts } from '/content/content.js';
 
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
             initializeProducts();
-        }); 
+
+            // Function to load HTML content
+            async function loadHTML(url, elementId) {
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`Failed to load ${url}: ${response.statusText}`);
+                    }
+                    const data = await response.text();
+                    document.getElementById(elementId).innerHTML = data;
+                } catch (error) {
+                    console.error(error);
+                    document.getElementById(elementId).innerHTML = `<p>Error loading content</p>`;
+                }
+            }
+
+            // Load toaster.html into the placeholder
+            await loadHTML('/toaster/toaster.html', 'toaster-placeholder');
+        });
     </script>
-    <!-- <script src="content.js"></script> -->
-    <!-- <script src="headerLoader.js"></script> -->
 
-    <script src="/headerLoader.js"></script>
+    <script type="module" src="/headerLoader.js"></script>
     <script type="module" src="/cart/cart.js"></script>
-    <!-- <script type="module" src="/content/content.js"></script> -->
 </body>
-
-
 </html>

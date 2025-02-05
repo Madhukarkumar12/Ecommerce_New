@@ -71,7 +71,7 @@
 }
 
 .checkout-btn{
-    width: 100%;
+    /* width: 100%;
     padding: 15px;
     background: #000;
     color: white;
@@ -79,5 +79,140 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 20px; */
+
+     /* width: Fill (457px)px; */
+     width: 100%;
+ height: Fixed (60px)px;
+ /* padding: 16px 54px 16px 54px;
+gap: 12px;
+border-radius: 62px 0px 0px 0px;
+opacity: 0px; */
+color: white;
+background: #000000;  
+padding: 16px 54px 16px 54px;
+border-radius: 62px ;
+border: none;
+cursor: pointer;
+gap: 12px;
+
+
 }
+
+.cart-items{
+    width: Fixed (715px)px;
+    height: Hug (508px)px;
+    top: 239px;
+    left: 32px;
+    padding: 20px 24px 20px 24px;
+    gap: 24px;
+    border-radius: 20px 0px 0px 0px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+    border: 1px solid #0000001A
+
+}
+
+.cart-item{
+    width: Fill (667px)px;
+    height: Hug (124px)px;
+    gap: 16px;
+    opacity: 0px;
+
+}
+
+.item-image{
+    width: 124px;
+    height: 124px;
+    gap: 0px;
+    border-radius: 8.66px 0px 0px 0px;
+    opacity: 0px;
+    background: #DAD6D6;
+}
+
+.item-details{
+    width: Fixed (151px)px;
+    height: Fixed (118px)px;
+    gap: 0px;
+    justify-content: space-between;
+    opacity: 0px;
+
+}
+
+.quantity-controls{
+    width: Hug (126px)px;
+    height: Hug (44px)px;
+    padding: 12px 20px 12px 20px;
+    gap: 20px;
+    border-radius: 62px 0px 0px 0px;
+    opacity: 0px;
+    background: #F0F0F0;
+
+}
+
+.delete-btn{
+    width: Hug (44px)px;
+    height: Hug (44px)px;
+    padding: 12px 12px 12px 12px;
+    border-radius: 0px 62px 0px 0px;
+    opacity: 0px;
+    background: #F0F0F0;
+    color: #e5573e;
+    cursor: pointer;
+
+}
+
+.quantity-btn{
+    width: 20px;
+    height: 20px;
+    gap: 0px;
+    opacity: 0px;
+    border: none;
+    cursor: pointer;
+}
+
+/* .cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-details h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.item-price {
+    font-size: 16px;
+    color: #666;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.quantity-btn:hover {
+    background-color: #cc5500;
+} */

@@ -1,6 +1,6 @@
 
 // import { showSnackbar } from "./registerLog";
-
+import { updateCartCount } from "/cart/cart.js";
 document.addEventListener("DOMContentLoaded",()=>{
     fetch('/header.html')
      .then(response=>response.text())
@@ -20,21 +20,23 @@ document.addEventListener("DOMContentLoaded",()=>{
             document.getElementById('login').style.display = 'block';
             document.getElementById('signup').style.display = 'block';
         }
+
+        updateCartCount();
      })
      .catch(error => console.error('Error loading header:', error));
 })
 
-function logout() {
+export function logout() {
     localStorage.removeItem('isLoggedIn'); // Clear login state
-    // alert("You have been logged out!");
-    // showSnackbar("You have been Logged out!");
-    // setTimeout(function() {
-    //     window.location.href = 'index.html';
-    // }, 3000);
-    window.location.href='index.html';
-    
+    // localStorage.clear();
+    localStorage.removeItem('cart');
+    localStorage.removeItem('currentUser');
+    // localStorage.setItem('isLoggedIn', 'false');
+
+    window.location.href='/index.html';
     
 }
+window.logout=logout;
 
 
 

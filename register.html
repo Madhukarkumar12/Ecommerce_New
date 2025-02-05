@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/register.css">
     <title>Register</title>
 
@@ -51,83 +52,52 @@
         </style>
 </head>
 <body>
-
-    
-    <!-- Header -->
-    <!-- <div id="header-placeholder"></div>
-    <script>
-        fetch('header.html')
-         .then(Response => Response.text())
-         .then(data=>{
-            document.getElementById('header-placeholder').innerHTML=data;
-         })
-    </script> -->
-
-    <!-- Register -->
     <div id="snackbar"></div>
-    <main class="register-container">
+    <div class="register-container">
        
-        <div class="register-left">
+        <div class="image">
             <img src='images/register.png' alt="Shopping illustration">
         </div>
 
-        
-        
         <div class="register-right">
-            
-            <a href="index.html" class="back-link">← Back Home</a>
+            <a href="index.html" class="back-link"><img src="images/Shape.png" alt="Back Icon" class="button-icon">Back Home</a>
             
             <div class="register-form">
-                <h2>BECOME AN EXCLUSIVE MEMBER</h2>
+                <h1>BECOME AN EXCLUSIVE MEMBER</h1>
                 <p>SIGN UP AND JOIN START SHOPPING</p>
                 
                 <form onsubmit="signup(event)">
-                    <!-- <div class="form-group">
-                        <input type="text" id="signupName" placeholder="Johnson Doe" required>
-                    </div> -->
-                    <div class="form-group">
+                   
                         <div class="input-wrapper">
-                            <!-- <i class="fa-regular fa-user"></i> -->
                             <span class="icon"><i class="fa-solid fa-circle-user"></i></span>
                             <input type="text" id="signupName" placeholder="Johnson Doe" required>
                         </div>
-                    </div>
-                    <!-- <div class="form-group">
-                        <input type="email" id="signupEmail" placeholder="example@email.com" required>
-                    </div> -->
-                    <div class="form-group">
+
                         <div class="input-wrapper">
-                            <!-- <i class="fa-regular fa-envelope"></i> -->
                             <span class="icon"><i class="fa-regular fa-envelope"></i></span>
                             <input type="email" id="signupEmail" placeholder="example@email.com" required>
                         </div>
-                    </div>
 
-                    <!-- <div class="form-group">
-                        <input type="password" id="signupPassword" placeholder="********" required>
-                    </div> -->
-                    <div class="form-group">
                         <div class="input-wrapper">
-                            <!-- <i class="fa-solid fa-pen"></i> -->
                             <span class="icon"></i><i class="fa-solid fa-pen"></i></span>
                             <input type="password" id="signupPassword" placeholder="********" required>
                         </div>
-                    </div>
+
 
                     <button type="submit" class="create-account-btn">Create an Account →</button>
+                    <p class="login-text">Already a Member? <a href="login.html">LOG IN NOW</a></p>
                 </form>
                 
-                <p class="login-text">Already a Member? <a href="login.html">LOG IN NOW</a></p>
             </div>
         </div>
-    </main>
+    </div>
 
     
 
 
     
     <script src="registerLog.js"></script>
-    <script src="headerLoader.js"></script>
+    <script type="module" src="headerLoader.js"></script>
 
 </body>
 </html>

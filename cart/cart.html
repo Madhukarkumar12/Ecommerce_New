@@ -46,13 +46,18 @@
 
     </div>
 
-    <script src="/headerLoader.js"></script>
+    
     <script type="module">
         import { initialize } from '/cart/cart.js';
-        document.addEventListener('DOMContentLoaded', () => {
-            initialize();
+        document.addEventListener('DOMContentLoaded', async () => {
+            await initialize();
+            // const script = document.createElement('script');
+            // script.type = 'module';
+            // script.src = '/cart/cart.js';
+            // document.body.appendChild(script);
     });
     </script>
+    <script type="module" src="/headerLoader.js"></script>
 
     <script type="module" src="/content/content.js"></script>
 

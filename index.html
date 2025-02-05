@@ -15,43 +15,53 @@
     <!-- <div id="header-placeholder"></div> -->
     <div id="card"></div>
     <div id="foot"></div>
+    <div id="toaster"></div>
 
     <script type="module">
 
-        import { initializeProducts } from '/content/content.js';  
-        document.addEventListener('DOMContentLoaded', async () => {
-            
-            async function loadHTML(url, elementId) {
-                try {
-                    const response = await fetch(url);
-                    if (!response.ok) {
-                        throw new Error(`Failed to load ${url}: ${response.statusText}`);
-                    }
-                    const data = await response.text();
-                    document.getElementById(elementId).innerHTML = data;
+    async function loadHTML(url, elementId) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`Failed to load ${url}: ${response.statusText}`);
 
-                    if (elementId === 'card') {
-                    initializeProducts();
-                }
-                } catch (error) {
-                    console.error(error);
-                    document.getElementById(elementId).innerHTML = `<p>Error loading content</p>`;
-                }
-            }
+            const data = await response.text();
+            document.getElementById(elementId).innerHTML = data;
+
+            // Ensure the DOM updates before continuing
+            await new Promise(requestAnimationFrame);
+        } catch (error) {
+            console.error(`Error loading ${url}:`, error);
+            document.getElementById(elementId).innerHTML = `<p>Error loading content</p>`;
+        }
+    }
+
+    async function initializePage() {
+        try {
+            await loadHTML('/content/content.html', 'card');
+
+            // Wait for the DOM update and then initialize products
+            await import('/content/content.js')
+                .then(({ initializeProducts }) => initializeProducts())
+                .catch(error => console.error("Error importing content.js:", error));
+
+            await Promise.all([
+                loadHTML('/footer.html', 'foot'),
+                loadHTML('/toaster/toaster.html', 'toaster')
+            ]);
+        } catch (error) {
+            console.error("Error loading components:", error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', initializePage);
+</script>
+
     
-            
-            try {
-                // await loadHTML('header.html', 'header-placeholder');
-                await loadHTML('content/content.html', 'card');
-                await loadHTML('footer.html', 'foot');
-            } catch (error) {
-                console.error("Error loading components:", error);
-            }
-        });
-    </script>
+
+    <script type="module" src="/headerLoader.js"></script>
+    
+    
+
 </body>
-  <!-- <script src="index.js"></script> -->
-  
-   <script src="headerLoader.js"></script>
  
 </html>

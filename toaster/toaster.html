@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        #snackbar {
+        /* #snackbar {
           visibility: hidden;
           min-width: 250px;
           margin-left: -125px;
@@ -17,6 +17,7 @@
           z-index: 1;
           left: 50%;
           bottom: 30px;
+          top: 30px;
           font-size: 17px;
         }
         
@@ -44,13 +45,56 @@
         @keyframes fadeout {
           from {bottom: 30px; opacity: 1;}
           to {bottom: 0; opacity: 0;}
-        }
+        } */
+
+        #snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    top: 30px; /* Set position at the top */
+    right: 30px; /* Align it to the right */
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {opacity: 0; right: 20px;} /* Slide in from slightly left */
+    to {opacity: 1; right: 30px;} /* Set final position */
+}
+
+@keyframes fadein {
+    from {opacity: 0; right: 20px;} /* Slide in from slightly left */
+    to {opacity: 1; right: 30px;} /* Set final position */
+}
+
+@-webkit-keyframes fadeout {
+    from {opacity: 1; right: 30px;} /* Maintain initial position */
+    to {opacity: 0; right: 20px;} /* Slide out slightly left */
+}
+
+@keyframes fadeout {
+    from {opacity: 1; right: 30px;} /* Maintain initial position */
+    to {opacity: 0; right: 20px;} /* Slide out slightly left */
+}
+
         </style>
     <title>Document</title>
 </head>
 <body>
     <div id="snackbar"></div>
-    <script src="registerLog.js"></script>
+    <script src="/registerLog.js"></script>
+    <script src="/content/content.js"></script>
 </body>
 
 

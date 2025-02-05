@@ -9,12 +9,10 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname));
 
-// const DATABASE_FILE = 'users.json';
 const PORT=3000;
 app.post('/signup',(req,res)=>{
     const { name, email, password } = req.body;
 
-    // Validate input
     if (!name || !email || !password) {
         return res.status(400).json({ success: false, message: 'All fields are required.' });
     }
@@ -79,6 +77,89 @@ app.post('/login',(req,res)=>{
         });
     });
 })
+
+
+app.get('/get-cart', (req, res) => {
+    const { email } = req.query;
+
+    // Validate the email query parameter
+    if (!email) {
+        return res.status(400).json({ success: false, message: 'Email is required.' });
+    }
+
+    // Read the carts.json file to fetch cart data
+    fs.readFile('carts.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading carts.json:', err);
+            return res.status(500).json({ success: false, message: 'Internal server error.' });
+        }
+
+        let carts = [];
+        try {
+            carts = JSON.parse(data); // Parse the carts data from the file
+        } catch (parseError) {
+            console.error('Error parsing carts.json:', parseError);
+        }
+
+        // Find the cart associated with the user's email
+        const userCart = carts.find(c => c.email === email);
+
+        if (!userCart) {
+            // No cart found for the given email
+            return res.status(404).json({ success: false, message: 'Cart not found for the given email.' });
+        }
+
+        // Respond with the cart data
+        res.status(200).json(userCart.cart);
+    });
+});
+
+
+
+app.post('/save-cart', (req, res) => {
+    const { email, cart } = req.body;
+
+    // Validate the request body
+    if (!email || !cart || !Array.isArray(cart)) {
+        return res.status(400).json({ success: false, message: 'Invalid request data.' });
+    }
+
+    // Read the carts.json file to fetch current cart data
+    fs.readFile('carts.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading carts.json:', err);
+            return res.status(500).json({ success: false, message: 'Internal server error.' });
+        }
+
+        let carts = [];
+        try {
+            carts = JSON.parse(data); // Parse the existing cart data
+        } catch (parseError) {
+            console.error('Error parsing carts.json:', parseError);
+        }
+
+        // Check if a cart for the given email already exists
+        const existingCart = carts.find(c => c.email === email);
+
+        if (existingCart) {
+            // Update the existing cart
+            existingCart.cart = cart;
+        } else {
+            // Add a new cart entry for the user
+            carts.push({ email, cart });
+        }
+
+        // Write the updated cart data back to the file
+        fs.writeFile('carts.json', JSON.stringify(carts, null, 2), (err) => {
+            if (err) {
+                console.error('Error writing to carts.json:', err);
+                return res.status(500).json({ success: false, message: 'Failed to save cart.' });
+            }
+
+            res.status(200).json({ success: true, message: 'Cart saved successfully.' });
+        });
+    });
+});
 
 app.listen(PORT,()=>{
     console.log("server is running on http://localhost:3000");
