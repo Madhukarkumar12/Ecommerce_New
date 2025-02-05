@@ -27,7 +27,7 @@ app.post('/signup',(req,res)=>{
         if (userExists) {
             return res.status(400).json({ success: false, message: 'Email is already registered.' });
         }
-        // Add new user
+        
         const newUser = { id: Date.now(), name, email, password }; // Add unique id
         users.push(newUser);
         // set the updated user list back to users.json....
@@ -105,11 +105,9 @@ app.get('/get-cart', (req, res) => {
         const userCart = carts.find(c => c.email === email);
 
         if (!userCart) {
-            // No cart found for the given email
             return res.status(404).json({ success: false, message: 'Cart not found for the given email.' });
         }
 
-        // Respond with the cart data
         res.status(200).json(userCart.cart);
     });
 });
@@ -133,7 +131,7 @@ app.post('/save-cart', (req, res) => {
 
         let carts = [];
         try {
-            carts = JSON.parse(data); // Parse the existing cart data
+            carts = JSON.parse(data); 
         } catch (parseError) {
             console.error('Error parsing carts.json:', parseError);
         }
