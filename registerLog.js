@@ -21,6 +21,7 @@ function signup(event) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
             localStorage.setItem('isLoggedIn', true);
             showSnackbar("Account created successfully! Logging you in...");
             setTimeout(function() {

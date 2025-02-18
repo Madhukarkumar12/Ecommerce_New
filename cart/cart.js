@@ -90,12 +90,16 @@ function attachDeleteListeners() {
     });
 }
 
+
 function updateQuantity(productId, change) {
     const item = cart.find(item => item.id === productId);
     if (item) {
         const newQuantity = item.quantity + change;
         if (newQuantity > 0) {
             item.quantity = newQuantity;
+        } else if (newQuantity === 0) {
+            showSnackbar("Quantity is already at 1. To remove the item, use the remove button.");
+            return;
         } else {
             cart = cart.filter(item => item.id !== productId);
         }
@@ -104,6 +108,21 @@ function updateQuantity(productId, change) {
         updateCartCount();
     }
 }
+
+// Show snackbar
+function showSnackbar(message) {
+    const snackbar = document.getElementById("snackbar");
+    if (!snackbar) {
+        console.error("Snackbar element not found!");
+        return;
+    }
+    snackbar.textContent = message;
+    snackbar.className = "show";
+    setTimeout(() => {
+        snackbar.className = snackbar.className.replace("show", "");
+    }, 3000);
+}
+
 
 function deleteItem(productId) {
     cart = cart.filter(item => item.id !== productId);
