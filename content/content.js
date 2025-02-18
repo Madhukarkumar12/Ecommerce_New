@@ -41,6 +41,7 @@
             const moreButton = document.createElement('button');
             moreButton.className = 'more';
             moreButton.textContent = 'More';
+            moreButton.onclick = () => redirectToMorePage(product);
 
             buttonsContainer.appendChild(addToCartButton);
             buttonsContainer.appendChild(moreButton);
@@ -52,6 +53,22 @@
 
             return card;
         }
+
+        // redirect to more page.....
+        function redirectToMorePage(product){
+            console.log("hii....")
+            const params = new URLSearchParams({
+                id: product.id,
+                name: product.name,
+                image: product.image,
+                price: product.price,
+                about: product.about,
+                remain: product.remain
+            });
+            window.location.href = `/more/more.html?${params.toString()}`
+        }
+
+        
 
         // Check if a product is already in the cart
         function isProductInCart(productId) {

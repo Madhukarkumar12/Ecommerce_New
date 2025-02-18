@@ -154,6 +154,15 @@
         "price": 3300,
         "image": "/images/cotton.jpg",
         "quantity": 1
+      },
+      {
+        "id": 4,
+        "name": "Polka skirt",
+        "price": 1500,
+        "image": "/images/polka.jpg",
+        "about": "Add a touch of elegance to your wardrobe with our polka skirt. Made from high-quality fabric, it offers comfort and style, perfect for casual or formal looks.",
+        "remain": 4,
+        "quantity": 1
       }
     ]
   }
