@@ -64,35 +64,3 @@ export function logout() {
     
 }
 window.logout=logout;
-
-    //    const dropdownBtn = document.getElementById("dropdownBtn");
-    //    console.log(dropdownBtn);
-    //    const dropdownMenu = document.getElementById("dropdownMenu");
-    //    console.log(dropdownMenu);
-    //    const dropdownIcon = document.getElementById("dropdownIcon");
-    //    console.log(dropdownIcon);
-
-    //    dropdownBtn.addEventListener("click", function(event) {
-    //         event.stopPropagation();
-    //         dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
-    //         dropdownIcon.classList.toggle("rotate");
-    //     });
-
-    //     dropdownIcon.addEventListener("click", function(event) {
-    //         event.stopPropagation();
-    //         dropdownMenu.style.display = "none";
-    //         dropdownIcon.classList.remove("rotate");
-    //     });
-
-    //     document.addEventListener("click", function(event) {
-    //         if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
-    //             dropdownMenu.style.display = "none";
-    //             dropdownIcon.classList.remove("rotate");
-    //         }
-    //     });
-
-
-
-
-
-
