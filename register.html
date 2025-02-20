@@ -8,48 +8,48 @@
     <title>Register</title>
 
     <style>
-        #snackbar {
-          visibility: hidden;
-          min-width: 250px;
-          margin-left: -125px;
-          background-color: #333;
-          color: #fff;
-          text-align: center;
-          border-radius: 2px;
-          padding: 16px;
-          position: fixed;
-          z-index: 1;
-          left: 50%;
-          bottom: 30px;
-          font-size: 17px;
-        }
-        
-        #snackbar.show {
-          visibility: visible;
-          -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-          animation: fadein 0.5s, fadeout 0.5s 2.5s;
-        }
-        
-        @-webkit-keyframes fadein {
-          from {bottom: 0; opacity: 0;} 
-          to {bottom: 30px; opacity: 1;}
-        }
-        
-        @keyframes fadein {
-          from {bottom: 0; opacity: 0;}
-          to {bottom: 30px; opacity: 1;}
-        }
-        
-        @-webkit-keyframes fadeout {
-          from {bottom: 30px; opacity: 1;} 
-          to {bottom: 0; opacity: 0;}
-        }
-        
-        @keyframes fadeout {
-          from {bottom: 30px; opacity: 1;}
-          to {bottom: 0; opacity: 0;}
-        }
-        </style>
+      #snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #3bdd12;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      top: 30px; /* Set position at the top */
+      right: 30px; /* Align it to the right */
+      font-size: 17px;
+  }
+  
+  #snackbar.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+      from {opacity: 0; right: 20px;} /* Slide in from slightly left */
+      to {opacity: 1; right: 30px;} /* Set final position */
+  }
+  
+  @keyframes fadein {
+      from {opacity: 0; right: 20px;} /* Slide in from slightly left */
+      to {opacity: 1; right: 30px;} /* Set final position */
+  }
+  
+  @-webkit-keyframes fadeout {
+      from {opacity: 1; right: 30px;} /* Maintain initial position */
+      to {opacity: 0; right: 20px;} /* Slide out slightly left */
+  }
+  
+  @keyframes fadeout {
+      from {opacity: 1; right: 30px;} /* Maintain initial position */
+      to {opacity: 0; right: 20px;} /* Slide out slightly left */
+  }
+  
+   </style>
 </head>
 <body>
     <div id="snackbar"></div>
@@ -93,8 +93,17 @@
     </div>
 
     
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          const isLoggedIn = localStorage.getItem("isLoggedIn");
+  
+          if (isLoggedIn) {
+              window.location.href = "/index.html"; // Redirect to home page
+          }
+      });
 
-
+  </script>
     
     <script src="registerLog.js"></script>
     <script type="module" src="headerLoader.js"></script>

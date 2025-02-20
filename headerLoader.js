@@ -61,6 +61,5 @@ export function logout() {
     // localStorage.setItem('isLoggedIn', 'false');
 
     window.location.href='/index.html';
-    
 }
 window.logout=logout;

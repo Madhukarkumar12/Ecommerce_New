@@ -31,6 +31,9 @@ async function syncCartWithBackend() {
 export function updateCartCount() {
     const cartCount = document.getElementById('cart-count');
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    if(totalItems===0){
+        document.getElementById('order-summary').style.display = 'none';
+    }
     if (cartCount) {
         cartCount.textContent = totalItems;
     } else {
@@ -54,9 +57,9 @@ function renderCart() {
                 </div>
                 <div><i class="fa-solid fa-trash delete-btn" data-id="${item.id}"></i></div>
                 <div class="quantity-controls">
-                    <button class="quantity-btn" data-id="${item.id}" data-change="-1">-</button>
+                    <button class="quantity-btn" data-id="${item.id}" data-change="-1" data-remain="${item.remain}">-</button>
                     <span>${item.quantity}</span>
-                    <button class="quantity-btn" data-id="${item.id}" data-change="1">+</button>
+                    <button class="quantity-btn" data-id="${item.id}" data-change="1" data-remain="${item.remain}">+</button>
                 </div>
             </div>
         `).join('');
@@ -74,8 +77,10 @@ function attachQuantityListeners() {
         button.addEventListener('click', (event) => {
             const productId = parseInt(event.target.dataset.id, 10);
             const change = parseInt(event.target.dataset.change, 10);
+            const maxQuant = parseInt(event.target.dataset.remain, 10);
+            console.log(maxQuant);
             if (!isNaN(productId) && !isNaN(change)) {
-                updateQuantity(productId, change);
+                updateQuantity(productId, change,maxQuant);
             }
         });
     });
@@ -91,10 +96,19 @@ function attachDeleteListeners() {
 }
 
 
-function updateQuantity(productId, change) {
+function updateQuantity(productId, change, maxQuant) {
     const item = cart.find(item => item.id === productId);
+    const maxQuantity = maxQuant; // Set the maximum quantity limit
+    // console.log(maxQuantity);
+
     if (item) {
         const newQuantity = item.quantity + change;
+        
+        if (newQuantity > maxQuantity) {
+            showSnackbar(`Only ${maxQuantity} items are available for this product.`);
+            return;
+        }
+
         if (newQuantity > 0) {
             item.quantity = newQuantity;
         } else if (newQuantity === 0) {
@@ -103,11 +117,13 @@ function updateQuantity(productId, change) {
         } else {
             cart = cart.filter(item => item.id !== productId);
         }
+
         saveCart();
         renderCart();
         updateCartCount();
     }
 }
+
 
 // Show snackbar
 function showSnackbar(message) {
@@ -129,6 +145,7 @@ function deleteItem(productId) {
     saveCart();
     renderCart();
     updateCartCount();
+    updateOrderSummary();
 }
 
 function updateOrderSummary() {

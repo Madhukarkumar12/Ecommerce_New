@@ -162,3 +162,15 @@
     background-color: #4a3234;
 }
 
+/* media-query ki baari..... */
+@media (max-width:768px){
+    .product-container{
+        flex-direction: column;
+        padding: 1rem;
+        margin: 0;
+        min-height: auto;
+    }
+    .product-image{
+        max-width: 100%;
+    }
+}

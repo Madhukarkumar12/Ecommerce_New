@@ -95,7 +95,12 @@
 
             const productInCart = cart.find(item => item.id === productId);
             if (productInCart) {
-                showSnackbar("Product is already in the cart");
+                showSnackbar("Redirecting to Cart....");
+                setTimeout(function(){
+                    window.location.href = "/cart/cart.html";
+                },1500);
+
+                // window.location.href = "/cart/cart.html";
             } else {
                 cart.push({ ...selectedProduct, quantity: 1 });
                 button.textContent = 'Go to Cart';
