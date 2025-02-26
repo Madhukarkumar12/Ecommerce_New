@@ -59,11 +59,11 @@
             console.log("hii....")
             const params = new URLSearchParams({
                 id: product.id,
-                name: product.name,
-                image: product.image,
-                price: product.price,
-                about: product.about,
-                remain: product.remain
+                // name: product.name,
+                // image: product.image,
+                // price: product.price,
+                // about: product.about,
+                // remain: product.remain
             });
             window.location.href = `/more/more.html?${params.toString()}`
         }

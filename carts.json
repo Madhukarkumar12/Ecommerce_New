@@ -54,6 +54,15 @@
         "about": "Upgrade your wardrobe with our classic striped shirt. Made from premium fabric, it offers comfort and style for any occasion. Perfect for casual or formal looks!",
         "remain": 3,
         "quantity": 3
+      },
+      {
+        "id": 2,
+        "name": "Grey shirt",
+        "price": 2200,
+        "image": "/images/grey.avif",
+        "about": "Elevate your style with our sleek grey shirt. Crafted from high-quality fabric, it ensures comfort and versatility, perfect for both casual outings and formal occasions.",
+        "remain": 5,
+        "quantity": 5
       }
     ]
   },

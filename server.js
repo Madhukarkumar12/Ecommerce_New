@@ -159,6 +159,18 @@ app.post('/save-cart', (req, res) => {
     });
 });
 
+// dealing with products.json......
+app.get('/products',(req,res)=>{
+    fs.readFile('products.json','utf8',(err,data)=>{
+        if(err){
+            res.status(500).json({ error: 'Error reading products file' });
+        }
+        else{
+            res.json(JSON.parse(data));
+        }
+    })
+})
+
 app.listen(PORT,()=>{
     console.log("server is running on http://localhost:3000");
 })
